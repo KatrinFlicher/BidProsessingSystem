@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bid Prosessing System: User module</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h4>Welcome to User module!</h4>
+<h5>You can add your request or check status of the request.</h5>
+<div>
+    Form to add a request:
+    <div th:if="${message!=null}" th:text="${message}"></div>
+    <form method="post" action="add">
+
+        <input type="text" name="text" placeholder="Введите текст заявки">
+        <input type="number" name="bid" placeholder="Введите возможную оплату">
+        <input type="date" name="data" placeholder="Введите необходимую дату">
+        <button type="submit">Добавить</button>
+
+    </form>
+
+    <h5>Check status of your request:</h5>
+
+    <form method="post" action="filter">
+        <input type="text" name="filter" placeholder="Введите текст заявки">
+        <button type="submit">Найти</button>
+
+    </form>
+    <div th:if="${accept!=null}" th:text="${accept}"></div>
+
+</div>
+</body>
+</html>
